@@ -2,9 +2,6 @@ package parser;
 
 import java.io.FileNotFoundException;
 
-// add all to github and check that all correctly loads and runs
-// add readme fo running
-
 public class Main{
     public static void main(String[] args){
         Parser parser = new Parser();
