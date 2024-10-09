@@ -10,9 +10,10 @@ public class Main{
         } else {
             try{
                 long startTime = System.currentTimeMillis();
-                parser.processStrings(args[0]);
+                parser.readStrings(args[0]);
+                parser.findGroups();
                 parser.findUniqueGroups();
-                parser.printCount();
+                parser.writeGroups();
                 long endTime = System.currentTimeMillis();
                 System.out.printf("Data processing took: %.3f\n", (endTime - startTime) / 1000.0);
             } catch (FileNotFoundException err){
