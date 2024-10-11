@@ -18,7 +18,7 @@ Build application:
 
 Run it with command:
 ```
-java -jar app/build/libs/app.jar <file-path>
+java -Xmx1G -jar data_parser.jar <file-path>
 ```
 
 Result will appear in current directory in file named `output.txt`.

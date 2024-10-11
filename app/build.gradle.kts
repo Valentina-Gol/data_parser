@@ -46,4 +46,6 @@ tasks.jar {
     manifest {
         attributes["Main-Class"] = "parser.Main"
     }
+    destinationDirectory = File("$rootDir")
+    archiveBaseName.set(rootProject.name)
 }
