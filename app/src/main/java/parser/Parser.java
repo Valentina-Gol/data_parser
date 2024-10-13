@@ -99,15 +99,6 @@ class Parser{
         toRemove.add(null);
         groups.removeAll(toRemove);
         Collections.sort(groups, new CompareArrayLists());
-
-        int number = 0;
-        int threshold = 1;
-        for (ArrayList<String> set: groups){
-            if (set.size() > threshold)
-                number++;
-        }
-        System.out.printf("Count of groups with members count more than %d: %d\n", threshold, number);
-        System.out.printf("Total groups count: %d\n", groups.size());
     }
 
     class CompareArrayLists implements Comparator<ArrayList<String>>{
@@ -118,10 +109,22 @@ class Parser{
         }
     }
 
+    public int getCountOfGroupsWIthMoreThenOneElements(){
+        int number = 0;
+        for (ArrayList<String> set: groups){
+            if (set.size() > 1)
+                number++;
+        }
+        return number;
+    }
+
     public void writeGroups() throws FileNotFoundException{
+        System.out.printf("Total groups count: %d\n", groups.size());
         File file = new File("./output.txt");
         file.getParentFile().mkdirs();
         try (PrintWriter writer = new PrintWriter(file)){
+            int number = getCountOfGroupsWIthMoreThenOneElements();
+            writer.println(number);
             for (int i = 0; i < groups.size(); i++){
                 writer.print(
                     String.format("Группа %d\n", i + 1) + String.join("\n", 
